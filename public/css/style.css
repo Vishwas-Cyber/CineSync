@@ -1,0 +1,256 @@
+:root {
+  --black: #050507;
+  --panel: #101014;
+  --card: #16161d;
+  --purple: #8b5cf6;
+  --purple-dark: #6d28d9;
+  --red: #ef4444;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.brand span { color: var(--purple); }
+
+.small-brand { font-size: 1.4rem; }
+
+/* AUTH */
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(139,92,246,.22), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(239,68,68,.16), transparent 40%),
+    var(--black);
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(16,16,20,.92);
+  border: 1px solid #26262e;
+  border-radius: 20px;
+  padding: 34px;
+  box-shadow: 0 25px 70px rgba(0,0,0,.65);
+}
+
+.tagline {
+  color: var(--muted);
+  letter-spacing: 1px;
+  font-size: .82rem;
+}
+
+.demo-box {
+  background: #0c0c10;
+  border: 1px solid #26262e;
+  border-radius: 12px;
+  padding: 10px;
+  color: var(--muted);
+}
+
+/* LAYOUT */
+#appScreen { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: var(--panel);
+  border-right: 1px solid #22222a;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+.side-link {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.side-link:hover,
+.side-link.active {
+  background: linear-gradient(90deg, rgba(139,92,246,.22), transparent);
+  color: #fff;
+}
+
+.main {
+  flex: 1;
+  padding: 24px 30px 60px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.user-chip {
+  background: var(--card);
+  border: 1px solid #2b2b34;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+}
+
+.notif-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 9px;
+  height: 9px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+/* BUTTONS */
+.btn-purple {
+  background: var(--purple);
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-purple:hover { background: var(--purple-dark); }
+
+.btn-red {
+  background: var(--red);
+  border: 0;
+  color: #fff;
+}
+
+/* CARDS */
+.movie-card {
+  background: var(--card);
+  border: 1px solid #24242c;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+  height: 100%;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(139,92,246,.18);
+}
+
+.poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: #1c1c22;
+}
+
+.card-body { padding: 14px; }
+
+.badge-genre {
+  background: rgba(139,92,246,.18);
+  color: #c4b5fd;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-weight: 700;
+  margin: 25px 0 15px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid #24242c;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+/* FORMS */
+.form-control,
+.form-select {
+  background: #0d0d11;
+  border: 1px solid #2b2b34;
+  color: #fff;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: #0d0d11;
+  color: #fff;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 .2rem rgba(139,92,246,.2);
+}
+
+/* TABLE */
+.table {
+  --bs-table-bg: transparent;
+  color: var(--text);
+}
+
+/* TOAST */
+.toast-box {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast-msg {
+  background: var(--card);
+  border-left: 4px solid var(--purple);
+  padding: 12px 16px;
+  border-radius: 10px;
+  min-width: 250px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+.toast-msg.error { border-left-color: var(--red); }
+
+@media (max-width: 900px) {
+  #appScreen { flex-direction: column; }
+  .sidebar { width: 100%; min-height: auto; }
+  .main { padding: 18px; }
+}
+
+.poster-fallback {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 8px 24px rgba(0,0,0,.55);
+}
